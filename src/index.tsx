@@ -6,7 +6,10 @@ import { Provider } from 'react-redux';
 import store from './store';
 import './index.css';
 
-const root = createRoot(document.getElementById('root'));
+const container = document.getElementById('root');
+if (!container) throw new Error('Failed to find the root element');
+const root = createRoot(container);
+
 root.render(
   <React.StrictMode>
     <Provider store={store}>
@@ -15,4 +18,4 @@ root.render(
       </BrowserRouter>
     </Provider>
   </React.StrictMode>
-);
+); 
